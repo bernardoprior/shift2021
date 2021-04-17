@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import OnboardingScreen from "./pages/OnboardingScreen";
 import HomeScreen from "./pages/HomeScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import Search from "./pages/Search";
 import RecPage from "./pages/Rec";
 
 import BottomBar from "./components/BottomBar.js";
@@ -30,7 +31,7 @@ const MainScreen = () => {
   return (
     <Tab.Navigator tabBar={(props) => <BottomBar {...props} />}>
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
-      <Tab.Screen name="SearchScreen" component={OnboardingScreen} />
+      <Tab.Screen name="SearchScreen" component={Search} />
       <Tab.Screen name="AddScreen" component={RecPage} />
       <Tab.Screen name="MessageScreen" component={OnboardingScreen} />
       <Tab.Screen name="ProfileScreen" component={ProfileScreen} />

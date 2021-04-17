@@ -42,6 +42,9 @@ const MusicProgression = ({
   onPress,
   height = 65,
   width = 2.5,
+  fullWidth = "70%",
+  uncoloredColor = colors.white,
+  disabled = false,
 }) => {
   const renderBars = () => {
     const seq = frequencySequence || DEFAULT;
@@ -52,6 +55,7 @@ const MusicProgression = ({
         height={s}
         colored={i / seq.length < percentageColored}
         width={width}
+        uncoloredColor={uncoloredColor}
       />
     ));
   };
@@ -63,22 +67,23 @@ const MusicProgression = ({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        width: "70%",
+        width: fullWidth,
         height,
       }}
+      disabled={disabled}
     >
       {renderBars()}
     </TouchableOpacity>
   );
 };
 
-const Bar = ({ height, colored, width }) => {
+const Bar = ({ height, colored, width, uncoloredColor }) => {
   return (
     <Text
       style={{
         height: `${height % 101}%`,
         borderRadius: 10,
-        borderColor: colored ? colors.pink : colors.white,
+        borderColor: colored ? colors.pink : uncoloredColor,
         opacity: colored ? 1 : 0.5,
         borderWidth: width % 4,
       }}
