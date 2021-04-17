@@ -21,7 +21,7 @@ import MixFolderContainer from "../../components/MixFolderContainer";
 import config from "../../config";
 const colors = config.colors;
 
-const RecPage = () => {
+const RecPage = (props) => {
   const [option, setOption] = useState(false);
   const [time, setTime] = useState(0);
   const [bpm, setBpm] = useState(120);
@@ -83,7 +83,7 @@ const RecPage = () => {
       />
       {option && (
         <ScrollView style={{ width: "100%" }}>
-          <MixFolderContainer />
+          <MixFolderContainer navigation={props.navigation} />
         </ScrollView>
       )}
       {!option && (
