@@ -120,8 +120,6 @@ const styles = StyleSheet.create({
   modalView: {
     flex: 1,
     justifyContent: "center",
-
-    // backgroundColor: colors.lightPurple,
   },
 
   mainView: {

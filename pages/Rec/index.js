@@ -19,6 +19,7 @@ import MusicProgression from "../../components/MusicProgression";
 import MixFolderContainer from "../../components/MixFolderContainer";
 
 import config from "../../config";
+import SaveModal from "./SaveModal.js";
 const colors = config.colors;
 
 const RecPage = () => {
@@ -29,6 +30,7 @@ const RecPage = () => {
   const [stopWatch, setStopWatch] = useState(0);
   const [stopWatchInterval, setStopWatchInterval] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [saveModal, setSaveModal] = useState(true);
 
   const onPressHeader = (bool) => {
     if (option != bool) setOption(bool);
@@ -42,8 +44,8 @@ const RecPage = () => {
       }, 1000);
       setStopWatchInterval(intervalStopWatch);
     } else {
+      openSaveModal();
       setStopWatch(0);
-
       clearInterval(stopWatchInterval);
     }
     setIsPlaying((prev) => !prev);
@@ -73,8 +75,16 @@ const RecPage = () => {
     setCurrentInterval(interval);
   };
 
+  const openSaveModal = () => {
+    setSaveModal(true);
+  };
+  const closeSaveModal = () => {
+    setSaveModal(false);
+  };
+
   return (
     <View style={styles.mainView}>
+      <SaveModal visible={saveModal} hide={closeSaveModal} />
       <SimpleHeader
         option={option}
         onPress={onPressHeader}
