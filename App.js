@@ -5,17 +5,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import OnboardingScreen from "./pages/OnboardingScreen";
+import HomeScreen from "./pages/HomeScreen";
+import ProfileScreen from "./pages/ProfileScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
 const MainScreen = () => {
   return (
     <Tab.Navigator>
@@ -23,7 +18,7 @@ const MainScreen = () => {
       <Tab.Screen name="SearchScreen" component={OnboardingScreen} />
       <Tab.Screen name="AddScreen" component={OnboardingScreen} />
       <Tab.Screen name="MessageScreen" component={OnboardingScreen} />
-      <Tab.Screen name="ProfileScreen" component={OnboardingScreen} />
+      <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };
