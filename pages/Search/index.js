@@ -7,15 +7,21 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+
+import Constants from "expo-constants";
+import { BlurView } from "expo-blur";
+
 import SearchBar from "../../components/SearchBar";
 
 import config, { rfvalue } from "../../config";
+import Filter from "../ProfileScreen/Filter";
 import Scrollable from "./Scrollable";
 
 const { colors } = config;
 
 const Search = () => {
   const [show, setShow] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   const onPressSearch = () => {
     setTimeout(() => {
@@ -23,11 +29,20 @@ const Search = () => {
     }, 1000);
   };
 
+  const closeFilter = () => {
+    setShowFilter(false);
+  };
+
+  const openFilter = () => {
+    setShowFilter(true);
+  };
+
   return (
-    <View style={styles.mainView}>
+    <View style={{ ...styles.mainView, filter: "blur(100px)" }}>
+      <Filter visible={showFilter} hide={closeFilter} />
       <View style={styles.searchbar}>
         <SearchBar width="70%" onPress={onPressSearch} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openFilter}>
           <Image source={require("../../assets/filter.png")} />
         </TouchableOpacity>
       </View>
@@ -38,11 +53,15 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   mainView: {
-    backgroundColor: colors.mediumPurple,
+    backgroundColor: colors.lightPurple,
     height: "100%",
   },
 
-  searchbar: { marginTop: rfvalue(60), flexDirection: "row" },
+  searchbar: {
+    marginTop: rfvalue(60),
+    marginBottom: rfvalue(30),
+    flexDirection: "row",
+  },
 });
 
 export default Search;

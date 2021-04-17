@@ -11,14 +11,29 @@ const IconWithLable = ({
   onPress,
   imgStyles = {},
   textStyles = {},
+  styles = {},
   flexDirection,
 }) => {
   return (
-    <View style={{ flexDirection }}>
+    <View
+      style={{
+        flexDirection,
+        justifyContent: "center",
+        alignItems: "center",
+        ...styles,
+      }}
+    >
       <TouchableOpacity onPress={onPress}>
         <Image style={imgStyles} source={icon} />
       </TouchableOpacity>
-      <Text style={textStyles}>{text}</Text>
+      <Text
+        style={{
+          ...textStyles,
+          //fontFamily: "PoppinsRegular",
+        }}
+      >
+        {text}
+      </Text>
     </View>
   );
 };

@@ -24,15 +24,19 @@ const Card = ({
   index,
 }) => {
   const [favorite, setFavorite] = useState(faved);
-  const timeConv = musicTimeLength / 100;
-  const { startStop, elapsedTime, resetTimer } = useTimer(0, timeConv);
+  const totalTimeConverted = musicTimeLength / 100;
+  const { startStop, elapsedTime, resetTimer } = useTimer(
+    0,
+    totalTimeConverted
+  );
 
   const onPressFav = () => {
     setFavorite((prev) => !prev);
   };
 
   const onPlayPause = () => {
-    if (elapsedTime >= timeConv) resetTimer();
+    // setPerc((prev) => (prev <= 1 ? prev + 0.1 : 0));
+    if (elapsedTime >= totalTimeConverted) resetTimer();
     else startStop();
   };
 
@@ -70,7 +74,7 @@ const Card = ({
       </View>
 
       <MusicProgression
-        percentageColored={elapsedTime / timeConv}
+        percentageColored={elapsedTime / totalTimeConverted}
         onPress={onPlayPause}
       />
       <View style={styles.buttons}>

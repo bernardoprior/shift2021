@@ -67,6 +67,7 @@ const BottomBar = ({ state, descriptors, navigation }) => {
 
         return (
           <TouchableOpacity
+            key={index}
             accessibilityRole="button"
             accessibilityStates={isFocused ? ["selected"] : []}
             accessibilityLabel={options.tabBarAccessibilityLabel}
