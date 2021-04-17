@@ -35,7 +35,7 @@ const BottomBar = ({ state, descriptors, navigation }) => {
       style={{
         flexDirection: "row",
         backgroundColor: colors.darkPurple,
-        height: RFValue(64, 812),
+        height: RFValue(72, 812),
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -75,7 +75,7 @@ const BottomBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             style={
               index == 2
-                ? { marginBottom: RFValue(64, 812) }
+                ? { marginBottom: RFValue(72, 812) }
                 : { flex: 1, alignItems: "center" }
             }
           >

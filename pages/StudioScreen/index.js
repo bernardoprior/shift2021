@@ -27,12 +27,17 @@ const StudioHeader = (props) => {
         <Icon name="chevron-left" size={RFValue(36, 812)} color={colors.pink} />
       </TouchableOpacity>
       <Text style={styles.headerText}>Studio</Text>
-      <View style={{ flexDirection: "row" }}>
+      <View
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+          paddingBottom: RFValue(16, 812),
+        }}
+      >
         <Icon
           name="content-save"
           style={{
             marginRight: RFValue(24, 812),
-            paddingBottom: RFValue(16, 812),
           }}
           size={RFValue(32, 812)}
           color={colors.pink}
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     flexDirection: "row",
-    paddingTop: RFValue(32, 812),
+    paddingTop: RFValue(46, 812),
     paddingHorizontal: RFValue(16, 812),
   },
   publishButtonView: {
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
   },
   buttonsView: {
     position: "absolute",
-    bottom: RFValue(32, 812),
+    bottom: RFValue(36, 812),
   },
   playButtonView: {
     borderRadius: RFValue(12, 812),
