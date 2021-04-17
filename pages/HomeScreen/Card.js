@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import MusicProgression from "../../components/MusicProgression";
 
+import IconMaterialCommunity from "react-native-vector-icons/MaterialCommunityIcons";
+import IconMaterial from "react-native-vector-icons/MaterialIcons";
+import IconEvil from "react-native-vector-icons/EvilIcons";
+
 import useTimer from "../../hooks/useTimer";
 import Avatar from "../../components/Avatar.js";
 import Icon from "../../components/IconWithLabel";
@@ -49,8 +53,8 @@ const Card = ({
   const iconTextStyles = {
     color: colors.white,
     textAlign: "center",
-    //fontFamily: "PoppinsRegular",
     fontSize: rfvalue(16),
+    marginTop: rfvalue(2),
   };
 
   return (
@@ -60,9 +64,10 @@ const Card = ({
       </View>
       <Text style={styles.tag}>{`@${userTag}`}</Text>
       <View style={styles.musicInfo}>
-        <Image
-          style={styles.colcheia}
-          source={require("../../assets/colcheia.png")}
+        <IconMaterialCommunity
+          name="music-note-eighth"
+          color={colors.white}
+          size={rfvalue(50)}
         />
         <View style={styles.musicInfoTextView}>
           <Text style={{ ...styles.musicInfoText, fontSize: rfvalue(20) }}>
@@ -88,18 +93,32 @@ const Card = ({
           }
           text={favs}
           onPress={onPressFav}
-        />
+        >
+          {/* <IconEvil name="star" size={rfvalue(45)} color={colors.white} /> */}
+        </Icon>
         <Icon
           textStyles={iconTextStyles}
           flexDirection="column"
-          icon={require("../../assets/share.png")}
+          // icon={require("../../assets/share.png")}
           text={shares}
-        />
+        >
+          <IconMaterialCommunity
+            name="share-variant"
+            size={rfvalue(42)}
+            color={colors.white}
+          />
+        </Icon>
         <Icon
           textStyles={iconTextStyles}
           flexDirection="column"
-          icon={require("../../assets/save.png")}
-        />
+          // icon={require("../../assets/save.png")}
+        >
+          <IconMaterial
+            name="save-alt"
+            size={rfvalue(45)}
+            color={colors.white}
+          />
+        </Icon>
       </View>
     </View>
   );

@@ -91,7 +91,9 @@ const Dropdown = ({ title, options }) => {
   return (
     <Item>
       <Text style={{ ...styles.text }}>{title}</Text>
-      <Text style={{ ...styles.text, flex: 0.36 }}>{option}</Text>
+      <TouchableOpacity style={{ flex: 0.36 }}>
+        <Text style={{ ...styles.text }}>{option}</Text>
+      </TouchableOpacity>
     </Item>
   );
 };
@@ -151,16 +153,15 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: "49%",
+    width: "47%",
     paddingTop: rfvalue(10),
     paddingBottom: rfvalue(10),
   },
 
   buttons: {
     marginTop: rfvalue(10),
-    borderWidth: 1,
 
-    width: "95%",
+    width: "99.5%",
 
     flexDirection: "row",
     justifyContent: "space-between",
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
   icon: {},
 
   text: {
+    fontFamily: "PoppinsRegular",
     color: colors.white,
     textAlign: "center",
     textAlignVertical: "center",
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: rfvalue(20),
+    fontSize: rfvalue(15),
   },
 });
 

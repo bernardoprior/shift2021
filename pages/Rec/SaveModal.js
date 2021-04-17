@@ -56,7 +56,7 @@ const InputText = ({ title, placeholder }) => {
           placeholderTextColor="#DDE1F0"
           value={text}
           onChangeText={(text) => setText(text)}
-          style={{ marginLeft: rfvalue(10) }}
+          style={{ ...styles.text, marginLeft: rfvalue(10) }}
         />
       </View>
     </View>
@@ -72,7 +72,7 @@ const Dropdown = ({ title, options }) => {
         <Text style={{ ...styles.text, ...styles.title }}>{title}</Text>
         <View style={{ ...styles.dropdownValue }}>
           <TouchableOpacity style={{ ...styles.dropdownValueTouchable }}>
-            <Text>{option}</Text>
+            <Text style={{ ...styles.text }}>{option}</Text>
             <Icon
               name="arrow-down"
               size={rfvalue(16)}
@@ -91,7 +91,7 @@ const Audio = () => {
     10000
   );
 
-  const color = colors.darkPurple;
+  const color = colors.mediumPurple;
   const size = 48;
 
   return (
@@ -114,11 +114,19 @@ const Audio = () => {
 };
 
 const Buttons = ({ hide }) => {
-  const size = 48;
-  const color = colors.darkPurple;
+  const size = 32;
+  const color = colors.mediumPurple;
+
+  const horizontalMargin = rfvalue(60);
 
   return (
-    <View style={{ ...styles.buttons }}>
+    <View
+      style={{
+        ...styles.buttons,
+        marginLeft: horizontalMargin,
+        marginRight: horizontalMargin,
+      }}
+    >
       <Button onPress={hide}>
         <IconAwesome size={rfvalue(size)} color={color} name="trash" />
       </Button>
@@ -151,7 +159,7 @@ const styles = StyleSheet.create({
     marginLeft: rfvalue(20),
     marginRight: rfvalue(20),
 
-    paddingTop: rfvalue(30),
+    paddingTop: rfvalue(20),
     paddingBottom: rfvalue(20),
   },
 
@@ -162,13 +170,12 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    //fontFamily: "PoppinsRegular",
-    color: colors.darkPurple,
+    fontFamily: "PoppinsRegular",
+    color: colors.mediumPurple,
   },
 
   title: {
-    //fontFamily: "PoppinsBold",
-    fontWeight: "bold",
+    fontFamily: "PoppinsBold",
     fontSize: rfvalue(15),
   },
 
@@ -180,7 +187,7 @@ const styles = StyleSheet.create({
     marginTop: rfvalue(13),
 
     borderBottomWidth: 1,
-    borderBottomColor: colors.darkPurple,
+    borderBottomColor: colors.mediumPurple,
   },
 
   dropdowns: {
@@ -198,11 +205,14 @@ const styles = StyleSheet.create({
   dropdownValue: {
     width: "100%",
 
-    borderBottomColor: colors.darkPurple,
+    marginTop: rfvalue(5),
+
+    borderBottomColor: colors.mediumPurple,
     borderBottomWidth: 1,
   },
 
   dropdownValueTouchable: {
+    marginLeft: rfvalue(10),
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -211,11 +221,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
 
-    marginTop: rfvalue(60),
-    marginBottom: rfvalue(10),
-
-    marginLeft: rfvalue(80),
-    marginRight: rfvalue(80),
+    marginTop: rfvalue(40),
   },
 });
 

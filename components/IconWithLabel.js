@@ -6,13 +6,14 @@ import config, { rfvalue } from "../config";
 const { colors } = config;
 
 const IconWithLable = ({
-  icon,
+  icon = null,
   text = "",
   onPress,
   imgStyles = {},
   textStyles = {},
   styles = {},
   flexDirection,
+  children,
 }) => {
   return (
     <View
@@ -24,12 +25,12 @@ const IconWithLable = ({
       }}
     >
       <TouchableOpacity onPress={onPress}>
-        <Image style={imgStyles} source={icon} />
+        {icon != null ? <Image style={imgStyles} source={icon} /> : children}
       </TouchableOpacity>
       <Text
         style={{
           ...textStyles,
-          //fontFamily: "PoppinsRegular",
+          fontFamily: "PoppinsRegular",
         }}
       >
         {text}

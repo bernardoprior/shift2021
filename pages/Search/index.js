@@ -11,7 +11,7 @@ import {
 import SearchBar from "../../components/SearchBar";
 
 import config, { rfvalue } from "../../config";
-import Filter from "../ProfileScreen/Filter";
+import Filter from "./Filter";
 import Scrollable from "./Scrollable";
 
 const { colors } = config;

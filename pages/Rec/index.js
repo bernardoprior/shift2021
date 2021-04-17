@@ -8,7 +8,6 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 
 import SimpleHeader from "../HomeScreen/Header.js";
@@ -30,7 +29,7 @@ const RecPage = () => {
   const [stopWatch, setStopWatch] = useState(0);
   const [stopWatchInterval, setStopWatchInterval] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [saveModal, setSaveModal] = useState(true);
+  const [saveModal, setSaveModal] = useState(false);
 
   const onPressHeader = (bool) => {
     if (option != bool) setOption(bool);
