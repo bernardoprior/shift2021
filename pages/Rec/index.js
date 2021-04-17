@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-native-snap-carousel";
-import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  ScrollView,
+  Image,
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -43,13 +50,13 @@ const RecPage = () => {
   };
 
   useEffect(() => {
-    //const interval = setInterval(() => {
-    //setTime((prev) => prev + 1);
-    //return;
-    //}, (1000 * 60) / bpm);
-    //setCurrentInterval(interval);
+    const interval = setInterval(() => {
+      setTime((prev) => prev + 1);
+      return;
+    }, (1000 * 60) / bpm);
+    setCurrentInterval(interval);
     return () => {
-      //clearInterval(currentInterval);
+      clearInterval(currentInterval);
       if (stopWatchInterval) {
         clearInterval(stopWatchInterval);
       }
@@ -75,9 +82,9 @@ const RecPage = () => {
         secText="Mix"
       />
       {option && (
-        <>
+        <ScrollView style={{ width: "100%" }}>
           <MixFolderContainer />
-        </>
+        </ScrollView>
       )}
       {!option && (
         <>
