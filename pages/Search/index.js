@@ -8,9 +8,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import Constants from "expo-constants";
-import { BlurView } from "expo-blur";
-
 import SearchBar from "../../components/SearchBar";
 
 import config, { rfvalue } from "../../config";
