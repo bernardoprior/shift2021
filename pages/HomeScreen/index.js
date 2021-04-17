@@ -16,7 +16,12 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.mainView}>
-      <Header option={option} onPress={onPressHeader} />
+      <Header
+        option={option}
+        onPress={onPressHeader}
+        text="Following"
+        secText="Shuffle"
+      />
       <Scrollable />
     </View>
   );

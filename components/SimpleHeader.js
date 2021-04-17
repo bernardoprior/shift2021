@@ -42,31 +42,4 @@ const Header = ({ option, onPress, text, secText }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  header: {
-    // paddingBottom: rfvalue(60),
-    // backgroundColor: colors.lightPurple,
-
-    flexDirection: "row",
-    justifyContent: "center",
-    zIndex: 100,
-
-    marginTop: RFValue(64, 812),
-    marginBottom: RFValue(8, 812),
-    // borderWidth: 3,
-    // borderColor: "orange",
-  },
-  //option: {
-  //height: "auto",
-  //zIndex: 101,
-  //},
-  headerText: {
-    textAlign: "center",
-    color: colors.white,
-    fontSize: RFValue(20, 812),
-    fontFamily: "PoppinsRegular",
-    zIndex: 100,
-  },
-});
-
 export default Header;

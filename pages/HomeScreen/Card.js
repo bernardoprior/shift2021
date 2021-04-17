@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import MusicProgression from "../../components/MusicProgression";
 
 import useTimer from "../../hooks/useTimer";
+import Avatar from "../../components/Avatar.js";
 
 import config, { rfvalue } from "../../config";
 
@@ -18,6 +19,8 @@ const Card = ({
   favs,
   shares,
   faved,
+  currentIndex,
+  index,
 }) => {
   const [favorite, setFavorite] = useState(faved);
   const timeConv = musicTimeLength / 100;
@@ -35,12 +38,17 @@ const Card = ({
     else startStop();
   };
 
+  useEffect(() => {
+    if (currentIndex == index) {
+      onPlayPause();
+    }
+  }, [currentIndex]);
+
   return (
     <View style={styles.mainView}>
-      <Image
-        style={styles.image}
-        source={require("../../assets/ed-sheeran.png")}
-      />
+      <View style={styles.image}>
+        <Avatar size={140} avatarURL={userImg} />
+      </View>
       <Text style={styles.tag}>{`@${userTag}`}</Text>
       <View style={styles.musicInfo}>
         <Image
@@ -83,7 +91,16 @@ const Icon = ({ icon, text = "", onPress }) => {
       <TouchableOpacity onPress={onPress}>
         <Image source={icon} />
       </TouchableOpacity>
-      <Text style={{ color: colors.white, textAlign: "center" }}>{text}</Text>
+      <Text
+        style={{
+          color: colors.white,
+          textAlign: "center",
+          fontFamily: "PoppinsRegular",
+          fontSize: rfvalue(16),
+        }}
+      >
+        {text}
+      </Text>
     </View>
   );
 };
@@ -108,7 +125,7 @@ const styles = StyleSheet.create({
   },
   tag: {
     color: colors.white,
-    fontWeight: "bold",
+    fontFamily: "PoppinsBold",
     fontSize: rfvalue(20),
     marginTop: 5,
   },
@@ -127,6 +144,7 @@ const styles = StyleSheet.create({
   },
   musicInfoText: {
     color: colors.white,
+    fontFamily: "PoppinsRegular",
     fontSize: rfvalue(15),
   },
 
