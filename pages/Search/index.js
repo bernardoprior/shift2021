@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import IconIonic from "react-native-vector-icons/Ionicons";
+
 import SearchBar from "../../components/SearchBar";
 
 import config, { rfvalue } from "../../config";
@@ -40,7 +42,7 @@ const Search = () => {
       <View style={styles.searchbar}>
         <SearchBar width="70%" onPress={onPressSearch} />
         <TouchableOpacity onPress={openFilter}>
-          <Image source={require("../../assets/filter.png")} />
+          <IconIonic name="filter" size={rfvalue(32)} color={colors.pink} />
         </TouchableOpacity>
       </View>
       {!show && <Scrollable />}

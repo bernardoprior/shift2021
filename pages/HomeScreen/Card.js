@@ -4,13 +4,14 @@ import MusicProgression from "../../components/MusicProgression";
 
 import IconMaterialCommunity from "react-native-vector-icons/MaterialCommunityIcons";
 import IconMaterial from "react-native-vector-icons/MaterialIcons";
-import IconEvil from "react-native-vector-icons/EvilIcons";
 
 import useTimer from "../../hooks/useTimer";
 import Avatar from "../../components/Avatar.js";
 import Icon from "../../components/IconWithLabel";
 
 import config, { rfvalue } from "../../config";
+import ShareButton from "../../components/Buttons/ShareButton";
+import SaveButton from "../../components/Buttons/SaveButton";
 
 const colors = config.colors;
 
@@ -93,31 +94,12 @@ const Card = ({
           }
           text={favs}
           onPress={onPressFav}
-        >
-          {/* <IconEvil name="star" size={rfvalue(45)} color={colors.white} /> */}
+        ></Icon>
+        <Icon textStyles={iconTextStyles} flexDirection="column" text={shares}>
+          <ShareButton size={rfvalue(42)} color={colors.white} />
         </Icon>
-        <Icon
-          textStyles={iconTextStyles}
-          flexDirection="column"
-          // icon={require("../../assets/share.png")}
-          text={shares}
-        >
-          <IconMaterialCommunity
-            name="share-variant"
-            size={rfvalue(42)}
-            color={colors.white}
-          />
-        </Icon>
-        <Icon
-          textStyles={iconTextStyles}
-          flexDirection="column"
-          // icon={require("../../assets/save.png")}
-        >
-          <IconMaterial
-            name="save-alt"
-            size={rfvalue(45)}
-            color={colors.white}
-          />
+        <Icon textStyles={iconTextStyles} flexDirection="column">
+          <SaveButton size={rfvalue(45)} color={colors.white} />
         </Icon>
       </View>
     </View>

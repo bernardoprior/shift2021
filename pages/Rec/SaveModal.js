@@ -16,6 +16,9 @@ import MusicProgression from "../../components/MusicProgression";
 import { rfvalue } from "../../config";
 import usePlay from "../../hooks/usePlay";
 
+import PlayButton from "../../components/Buttons/PlayButton";
+import PauseButton from "../../components/Buttons/PauseButton";
+
 import config from "../../config";
 
 const { colors } = config;
@@ -104,9 +107,9 @@ const Audio = () => {
       />
       <TouchableOpacity onPress={onPlayPause}>
         {!isRunning ? (
-          <IconAnt name="play" size={size} color={color} />
+          <PlayButton {...{ size, color }} />
         ) : (
-          <IconAwesome name="pause-circle" size={size} color={color} />
+          <PauseButton {...{ size, color }} />
         )}
       </TouchableOpacity>
     </View>
