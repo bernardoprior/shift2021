@@ -4,6 +4,7 @@ import MusicProgression from "../../components/MusicProgression";
 
 import useTimer from "../../hooks/useTimer";
 import Avatar from "../../components/Avatar.js";
+import Icon from "../../components/IconWithLabel";
 
 import config, { rfvalue } from "../../config";
 
@@ -26,14 +27,11 @@ const Card = ({
   const timeConv = musicTimeLength / 100;
   const { startStop, elapsedTime, resetTimer } = useTimer(0, timeConv);
 
-  const imgPath = `../../assets/${userImg}.png`;
-
   const onPressFav = () => {
     setFavorite((prev) => !prev);
   };
 
   const onPlayPause = () => {
-    // setPerc((prev) => (prev <= 1 ? prev + 0.1 : 0));
     if (elapsedTime >= timeConv) resetTimer();
     else startStop();
   };
@@ -43,6 +41,13 @@ const Card = ({
       onPlayPause();
     }
   }, [currentIndex]);
+
+  const iconTextStyles = {
+    color: colors.white,
+    textAlign: "center",
+    //fontFamily: "PoppinsRegular",
+    fontSize: rfvalue(16),
+  };
 
   return (
     <View style={styles.mainView}>
@@ -70,6 +75,8 @@ const Card = ({
       />
       <View style={styles.buttons}>
         <Icon
+          textStyles={iconTextStyles}
+          flexDirection="column"
           icon={
             favorite
               ? require("../../assets/fav_filled.png")
@@ -78,29 +85,18 @@ const Card = ({
           text={favs}
           onPress={onPressFav}
         />
-        <Icon icon={require("../../assets/share.png")} text={shares} />
-        <Icon icon={require("../../assets/save.png")} />
+        <Icon
+          textStyles={iconTextStyles}
+          flexDirection="column"
+          icon={require("../../assets/share.png")}
+          text={shares}
+        />
+        <Icon
+          textStyles={iconTextStyles}
+          flexDirection="column"
+          icon={require("../../assets/save.png")}
+        />
       </View>
-    </View>
-  );
-};
-
-const Icon = ({ icon, text = "", onPress }) => {
-  return (
-    <View>
-      <TouchableOpacity onPress={onPress}>
-        <Image source={icon} />
-      </TouchableOpacity>
-      <Text
-        style={{
-          color: colors.white,
-          textAlign: "center",
-          fontFamily: "PoppinsRegular",
-          fontSize: rfvalue(16),
-        }}
-      >
-        {text}
-      </Text>
     </View>
   );
 };
@@ -125,7 +121,7 @@ const styles = StyleSheet.create({
   },
   tag: {
     color: colors.white,
-    fontFamily: "PoppinsBold",
+    // fontFamily: "PoppinsBold",
     fontSize: rfvalue(20),
     marginTop: 5,
   },
@@ -144,7 +140,7 @@ const styles = StyleSheet.create({
   },
   musicInfoText: {
     color: colors.white,
-    fontFamily: "PoppinsRegular",
+    //fontFamily: "PoppinsRegular",
     fontSize: rfvalue(15),
   },
 

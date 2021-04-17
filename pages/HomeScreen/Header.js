@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: colors.white,
     fontSize: RFValue(20, 812),
-    fontFamily: "PoppinsRegular",
+    //fontFamily: "PoppinsRegular",
     zIndex: 100,
   },
 });
