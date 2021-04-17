@@ -8,7 +8,7 @@ const colors = config.colors;
 const SimpleButton = (props) => {
   const { text } = props;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={{ ...styles.container, ...props.style }}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );

@@ -69,18 +69,20 @@ export default function App() {
   }, [fontsLoaded]);
 
   return (
-    <NavigationContainer initialRouteName="MainScreen">
+    <NavigationContainer initialRouteName="OnboardingScreen">
       <Stack.Navigator
         screenOptions={{
           headerLeft: null,
           ...headerOptions.noHeader,
         }}
       >
+        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="Studio" component={StudioScreen} />
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
+
   );
 }
 
