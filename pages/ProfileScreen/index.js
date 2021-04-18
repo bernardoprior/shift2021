@@ -15,10 +15,10 @@ const ProfileScreen = () => {
       <Info
         userTag="luis_antonio"
         info={[
-          { title: "Sounds", value: 29 },
+          { title: "Sounds", value: 2 },
           { title: "Followers", value: 334 },
           { title: "Following", value: 230 },
-          { title: "likes", value: 5000 },
+          { title: "likes", value: 2300 },
         ]}
       />
       <Scrollable />
