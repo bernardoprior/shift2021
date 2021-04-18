@@ -18,7 +18,6 @@ const IconWithLable = ({
   return (
     <View
       style={{
-        flexDirection,
         justifyContent: "center",
         alignItems: "center",
         ...styles,

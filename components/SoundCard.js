@@ -111,25 +111,27 @@ const SecondaryInfo = ({ faved }) => {
           alignItems: "center",
           width: "100%",
           justifyContent: "space-between",
+          paddingTop: rfvalue(8),
+          paddingHorizontal: rfvalue(24),
         }}
       >
         <IconWithLable
           onPress={onPressFav}
           flexDirection="column"
           textStyles={styles.secondaryInfoText}
+          text="1.3 M"
         >
           <FavButton color={colors.darkPurple} size={rfvalue(30)} />
         </IconWithLable>
         <IconWithLable
-          styles={{ marginTop: rfvalue(20) }}
           // icon={require("../assets/shareBlack.png")}
           flexDirection="column"
           textStyles={styles.secondaryInfoText}
+          text="233 K"
         >
           <ShareButton color={colors.darkPurple} size={rfvalue(30)} />
         </IconWithLable>
         <IconWithLable
-          styles={{ marginTop: rfvalue(20) }}
           // icon={require("../assets/shareBlack.png")}
           flexDirection="column"
           textStyles={styles.secondaryInfoText}
@@ -202,9 +204,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
   },
 
-  secondaryInfoText: {
-    marginLeft: rfvalue(15),
-  },
+  secondaryInfoText: {},
 
   text: {
     //fontFamily: "PoppinsRegular",
