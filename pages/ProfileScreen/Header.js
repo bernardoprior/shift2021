@@ -9,7 +9,7 @@ import config from "../../config";
 const { colors } = config;
 
 const Header = ({ onPressDraft, onPressOptions }) => {
-  const horizontalMargin = rfvalue(60);
+  const horizontalMargin = rfvalue(32);
 
   return (
     <View
@@ -26,7 +26,7 @@ const Header = ({ onPressDraft, onPressOptions }) => {
         <IconSimple
           name="options"
           size={rfvalue(28)}
-          color={colors.darkPurple}
+          color={colors.white}
         />
       </Button>
     </View>
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-
     marginTop: rfvalue(60),
   },
   text: {
