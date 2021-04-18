@@ -27,6 +27,7 @@ import {
   OpenSans_400Regular,
   OpenSans_700Bold,
 } from "@expo-google-fonts/open-sans";
+import { FolderContextProvider } from "./context/FoldersContext";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -52,7 +53,6 @@ export default function App() {
   });
 
   useEffect(() => {
-    console.disableYellowBox = true;
     const keepSplashScreen = async () => {
       try {
         await SplashScreen.preventAutoHideAsync();
@@ -73,20 +73,22 @@ export default function App() {
   }, [fontsLoaded]);
 
   return (
-    <NavigationContainer initialRouteName="OnboardingScreen">
-      <Stack.Navigator
-        screenOptions={{
-          headerLeft: null,
-          ...headerOptions.noHeader,
-        }}
-      >
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="MainScreen" component={MainScreen} />
-        <Stack.Screen name="Studio" component={StudioScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <FolderContextProvider>
+      <NavigationContainer initialRouteName="OnboardingScreen">
+        <Stack.Navigator
+          screenOptions={{
+            headerLeft: null,
+            ...headerOptions.noHeader,
+          }}
+        >
+          <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="MainScreen" component={MainScreen} />
+          <Stack.Screen name="Studio" component={StudioScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </FolderContextProvider>
   );
 }
 

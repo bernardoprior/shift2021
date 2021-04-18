@@ -18,6 +18,7 @@ import ScrollerSamples from "./ScrollerSamples.js";
 import Avatar from "./Avatar.js";
 
 import config from "../config";
+import { useFolder } from "../context/FoldersContext.js";
 const colors = config.colors;
 
 const musicWaveData = [
@@ -39,7 +40,7 @@ const musicWaveData = [
 
 const mixData = [
   {
-    nSamples: 5,
+    nSamples: 1,
     title: "Cool Beats",
     samplesData: [
       {
@@ -61,8 +62,8 @@ const mixData = [
     ],
   },
   {
-    nSamples: 5,
-    title: "Cool Beats",
+    nSamples: 1,
+    title: "LoFi Vibin",
     samplesData: [
       {
         type: "Vocals",
@@ -146,9 +147,11 @@ const Folder = (props) => {
 };
 
 const MixFolderContainer = (props) => {
+  const { folders } = useFolder();
+
   return (
     <View style={{ marginTop: RFValue(24, 812), width: "100%" }}>
-      {mixData.map((item, index) => {
+      {folders.map((item, index) => {
         return <Folder key={index} navigation={props.navigation} item={item} />;
       })}
     </View>

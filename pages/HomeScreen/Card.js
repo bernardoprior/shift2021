@@ -12,6 +12,8 @@ import Icon from "../../components/IconWithLabel";
 import config, { rfvalue } from "../../config";
 import ShareButton from "../../components/Buttons/ShareButton";
 import SaveButton from "../../components/Buttons/SaveButton";
+import { useFolder } from "../../context/FoldersContext";
+import SaveSample from "../../components/SaveSample";
 
 const colors = config.colors;
 
@@ -28,6 +30,10 @@ const Card = ({
   currentIndex,
   index,
 }) => {
+  const [showSaveSample, setShowSaveSample] = useState(false);
+
+  const { addSampleToFolder } = useFolder();
+
   const [favorite, setFavorite] = useState(faved);
   const totalTimeConverted = musicTimeLength / 100;
   const { startStop, elapsedTime, resetTimer } = useTimer(
@@ -37,6 +43,21 @@ const Card = ({
 
   const onPressFav = () => {
     setFavorite((prev) => !prev);
+  };
+
+  const openSaveSampleModal = () => {
+    setShowSaveSample(true);
+  };
+  const closeSaveSampleModal = () => {
+    setShowSaveSample(false);
+  };
+
+  const onPressSave = () => {
+    openSaveSampleModal();
+    // addSampleToFolder(
+    //   { type: "Flute", title: musicName, userImg },
+    //   "Cool Beats"
+    // );
   };
 
   const onPlayPause = () => {
@@ -60,6 +81,7 @@ const Card = ({
 
   return (
     <View style={styles.mainView}>
+      <SaveSample visible={showSaveSample} hide={closeSaveSampleModal} />
       <View style={styles.image}>
         <Avatar size={140} avatarURL={userImg} />
       </View>
@@ -98,7 +120,11 @@ const Card = ({
         <Icon textStyles={iconTextStyles} flexDirection="column" text={shares}>
           <ShareButton size={rfvalue(42)} color={colors.white} />
         </Icon>
-        <Icon textStyles={iconTextStyles} flexDirection="column">
+        <Icon
+          onPress={onPressSave}
+          textStyles={iconTextStyles}
+          flexDirection="column"
+        >
           <SaveButton size={rfvalue(45)} color={colors.white} />
         </Icon>
       </View>

@@ -22,12 +22,7 @@ const Scrollable = () => {
     return INFO.map((info, i) => <SoundCard {...info} key={i} />);
   };
 
-  return (
-    <>
-      {/* <View></View> */}
-      <ScrollView style={styles.scrollable}>{renderInfo()}</ScrollView>
-    </>
-  );
+  return <ScrollView style={styles.scrollable}>{renderInfo()}</ScrollView>;
 };
 
 const styles = StyleSheet.create({

@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Modal,
   TextInput,
 } from "react-native";
 
@@ -20,30 +19,29 @@ import PlayButton from "../../components/Buttons/PlayButton";
 import PauseButton from "../../components/Buttons/PauseButton";
 
 import config from "../../config";
+import ModalHoc from "../../components/ModalHoc";
 
 const { colors } = config;
 
 const SaveModal = ({ visible, hide }) => {
   return (
-    <Modal animationType="slide" transparent={true} visible={visible}>
-      <View style={{ ...styles.modalView }}>
-        <View style={{ ...styles.mainView }}>
-          <View style={{ ...styles.innerView }}>
-            <Audio />
-            <InputText title="Title" placeholder="Hypnotize" />
-            <InputText
-              title="Description"
-              placeholder="Lorem Ipsum is simply dummy text"
-            />
-            <View style={{ ...styles.dropdowns }}>
-              <Dropdown title="Scale" options={["A Maj"]} />
-              <Dropdown title="Genre" options={["Rap"]} />
-            </View>
-            <Buttons hide={hide} />
+    <ModalHoc {...{ visible }}>
+      <View style={{ ...styles.mainView }}>
+        <View style={{ ...styles.innerView }}>
+          <Audio />
+          <InputText title="Title" placeholder="Hypnotize" />
+          <InputText
+            title="Description"
+            placeholder="Lorem Ipsum is simply dummy text"
+          />
+          <View style={{ ...styles.dropdowns }}>
+            <Dropdown title="Scale" options={["A Maj"]} />
+            <Dropdown title="Genre" options={["Indie Rock"]} />
           </View>
+          <Buttons hide={hide} />
         </View>
       </View>
-    </Modal>
+    </ModalHoc>
   );
 };
 
@@ -154,11 +152,6 @@ const Button = ({ children, onPress }) => {
 };
 
 const styles = StyleSheet.create({
-  modalView: {
-    flex: 1,
-    justifyContent: "center",
-  },
-
   mainView: {
     borderRadius: 20,
 

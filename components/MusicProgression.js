@@ -100,11 +100,13 @@ const MusicProgression = ({
 
 const Bar = ({ height, colored, width, uncoloredColor, h }) => {
   const val = height + h;
+  const min = 30;
+  const max = 100;
 
   return (
     <Text
       style={{
-        height: `${(val < 0 ? 0 : val > 100 ? 100 : val) % 101}%`,
+        height: `${(val < min ? min : val > max ? max : val) % 101}%`,
         borderRadius: 10,
         borderColor: colored ? colors.pink : uncoloredColor,
         opacity: colored ? 1 : 0.5,
