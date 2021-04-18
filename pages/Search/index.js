@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import IconIonic from "react-native-vector-icons/Ionicons";
 
@@ -45,7 +38,7 @@ const Search = () => {
           <IconIonic name="filter" size={rfvalue(32)} color={colors.pink} />
         </TouchableOpacity>
       </View>
-      {!show ? (
+      {show ? (
         <Scrollable />
       ) : (
         <View
