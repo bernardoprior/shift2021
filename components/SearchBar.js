@@ -13,11 +13,18 @@ import config, { rfvalue } from "../config";
 
 const { colors } = config;
 
-const SearchBar = ({ width, onPress }) => {
+const SearchBar = ({ width, onPress, marginRight, marginLeft }) => {
   const [text, setText] = useState("");
 
   return (
-    <View style={{ ...styles.mainView, width }}>
+    <View
+      style={{
+        ...styles.mainView,
+        width,
+        marginRight: marginRight != null ? marginRight : rfvalue(30),
+        marginLeft: marginLeft != null ? marginLeft : rfvalue(30),
+      }}
+    >
       <TouchableOpacity onPress={onPress}>
         <Image style={styles.img} source={require("../assets/search.png")} />
       </TouchableOpacity>
@@ -35,8 +42,6 @@ const SearchBar = ({ width, onPress }) => {
 const styles = StyleSheet.create({
   mainView: {
     backgroundColor: colors.darkPurple,
-    marginLeft: rfvalue(30),
-    marginRight: rfvalue(30),
     borderRadius: 20,
 
     flexDirection: "row",

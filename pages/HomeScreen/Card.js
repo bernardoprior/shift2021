@@ -35,6 +35,8 @@ const Card = ({
     totalTimeConverted
   );
 
+  console.log(musicName);
+
   const onPressFav = () => {
     setFavorite((prev) => !prev);
   };

@@ -22,7 +22,7 @@ export default function HomeScreen() {
         text="Following"
         secText="Shuffle"
       />
-      <Scrollable />
+      <Scrollable option={option} />
     </View>
   );
 }

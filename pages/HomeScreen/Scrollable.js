@@ -6,84 +6,103 @@ import { Dimensions } from "react-native";
 
 const height = Dimensions.get("window").height;
 
-const musicData = [
-  {
-    musicTimeLength: 1000,
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
-    musicStyle: "Indie Rock",
-    bpm: 120,
-    favs: "1.3M",
-    faved: false,
-    shares: 5.521,
-  },
-  {
-    musicTimeLength: 1000,
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
-    musicStyle: "Indie Rock",
-    bpm: 120,
-    favs: "1.3M",
-    faved: false,
-    shares: 5.521,
-  },
-  {
-    musicTimeLength: 1000,
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
-    musicStyle: "Indie Rock",
-    bpm: 120,
-    favs: "1.3M",
-    faved: false,
-    shares: 5.521,
-  },
-  {
-    musicTimeLength: 1000,
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
-    musicStyle: "Indie Rock",
-    bpm: 120,
-    favs: "1.3M",
-    faved: false,
-    shares: 5.521,
-  },
-  {
-    musicTimeLength: 1000,
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
-    musicStyle: "Indie Rock",
-    bpm: 120,
-    favs: "1.3M",
-    faved: false,
-    shares: 5.521,
-  },
-];
-
-const Scrollable = () => {
+const data = {
+  followingData: [
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sasdsdjasdjasdheeran",
+      musicName: "It Was a Goosdasdhasdd Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sheeran",
+      musicName: "It Was a Good Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sheeran",
+      musicName: "It Was a Good Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sheeran",
+      musicName: "It Was a Good Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sheeran",
+      musicName: "It Was a Good Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+  ],
+  shuffleData: [
+    {
+      musicTimeLength: 1000,
+      userImg:
+        "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
+      userTag: "ed_sheeran",
+      musicName: "Isdast Was a Good Day",
+      musicStyle: "Indie Rock",
+      bpm: 120,
+      favs: "1.3M",
+      faved: false,
+      shares: 5.521,
+    },
+  ],
+};
+const Scrollable = ({ option }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
-  const renderItems = ({ index }) => {
+  const renderItems = ({ item, index }) => {
     return (
       <Card
         musicTimeLength={1000}
-        userImg={musicData[index].userImg}
-        userTag="ed_sheeran"
-        musicName="It Was a Good Day"
-        musicStyle="Indie Rock"
-        bpm={120}
-        favs="1.3M"
+        userImg={
+          !option
+            ? data.followingData[index].userImg
+            : data.shuffleData[index].userImg
+        }
+        userTag={item.userTag}
+        musicName={item.musicName}
+        musicStyle={item.musicStyle}
+        bpm={item.bpm}
+        favs={item.favs}
         faved={false}
-        shares={5.521}
+        shares={item.shares}
         currentIndex={currentIndex}
         index={index}
       />
@@ -92,7 +111,7 @@ const Scrollable = () => {
 
   return (
     <Carousel
-      data={musicData}
+      data={!option ? data.followingData : data.shuffleData}
       renderItem={renderItems}
       sliderHeight={Math.round(height * 0.8)}
       itemHeight={Math.round(height * 0.75)}
