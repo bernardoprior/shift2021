@@ -52,8 +52,8 @@ const ChatScreen = (props) => {
   return (
     <View style={styles.mainView}>
       <ChatScreenHeader />
-      {conversationsData.map((conversation) => {
-        return <MessageContainer content={conversation} />;
+      {conversationsData.map((conversation, index) => {
+        return <MessageContainer index={index} content={conversation} />;
       })}
     </View>
   );

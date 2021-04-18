@@ -113,9 +113,8 @@ const ScrollerSamples = (props) => {
         {drafts && (
           <>
             {drafts.map((draft, index) => (
-              <View style={{ paddingBottom: RFValue(8, 812) }}>
+              <View key={index} style={{ paddingBottom: RFValue(8, 812) }}>
                 <DraftCard
-                  key={index}
                   draft={draft}
                   navigation={props.navigation}
                   onPressCard={onPressDraft}
@@ -190,8 +189,8 @@ const Folder = (props) => {
 const MixFolderContainer = (props) => {
   return (
     <View style={{ marginTop: RFValue(24, 812), width: "100%" }}>
-      {mixData.map((item) => {
-        return <Folder navigation={props.navigation} item={item} />;
+      {mixData.map((item, index) => {
+        return <Folder key={index} navigation={props.navigation} item={item} />;
       })}
     </View>
   );

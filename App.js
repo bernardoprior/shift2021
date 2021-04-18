@@ -52,6 +52,7 @@ export default function App() {
   });
 
   useEffect(() => {
+    console.disableYellowBox = true;
     const keepSplashScreen = async () => {
       try {
         await SplashScreen.preventAutoHideAsync();
@@ -84,10 +85,8 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="Studio" component={StudioScreen} />
-
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 

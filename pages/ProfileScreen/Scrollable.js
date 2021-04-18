@@ -19,7 +19,7 @@ const INFO = [
 
 const Scrollable = () => {
   const renderInfo = () => {
-    return INFO.map((info, i) => <SoundCard {...info} />);
+    return INFO.map((info, i) => <SoundCard {...info} key={i} />);
   };
 
   return (
