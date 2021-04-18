@@ -33,6 +33,7 @@ export const SoundCardAvatar = ({
   scale,
   avatar,
   userTag,
+  description,
 }) => {
   const [show, setShow] = useState(false);
   const { onPlayPause, percentageTimeElapsed, isRunning } = usePlay(0, 2000);
@@ -112,7 +113,14 @@ export const SoundCardAvatar = ({
             </TouchableOpacity>
           </View>
         </View>
-        {show && <SecondaryInfo favorite={faved} />}
+        {show && (
+          <SecondaryInfo
+            favs={favs}
+            shares={shares}
+            description={description}
+            favorite={faved}
+          />
+        )}
       </TouchableOpacity>
     </>
   );
@@ -127,6 +135,7 @@ const SoundCard = ({
   shares,
   genre,
   scale,
+  description,
 }) => {
   const [show, setShow] = useState(false);
   const { onPlayPause, percentageTimeElapsed, isRunning } = usePlay(
@@ -196,12 +205,19 @@ const SoundCard = ({
           </TouchableOpacity>
         </View>
       </View>
-      {show && <SecondaryInfo favorite={faved} />}
+      {show && (
+        <SecondaryInfo
+          favs={favs}
+          shares={shares}
+          description={description}
+          favorite={faved}
+        />
+      )}
     </TouchableOpacity>
   );
 };
 
-const SecondaryInfo = ({ faved }) => {
+const SecondaryInfo = ({ faved, description, favs, shares }) => {
   const [favorite, setFavorite] = useState(faved);
 
   const onPressFav = () => {
@@ -224,7 +240,7 @@ const SecondaryInfo = ({ faved }) => {
           onPress={onPressFav}
           flexDirection="column"
           textStyles={styles.secondaryInfoText}
-          text="1.3 M"
+          text={favs}
         >
           <FavButton color={colors.darkPurple} size={rfvalue(30)} />
         </IconWithLable>
@@ -232,7 +248,7 @@ const SecondaryInfo = ({ faved }) => {
           // icon={require("../assets/shareBlack.png")}
           flexDirection="column"
           textStyles={styles.secondaryInfoText}
-          text="233 K"
+          text={shares}
         >
           <ShareButton color={colors.darkPurple} size={rfvalue(30)} />
         </IconWithLable>
@@ -245,12 +261,7 @@ const SecondaryInfo = ({ faved }) => {
         </IconWithLable>
       </View>
       <View style={{ marginTop: rfvalue(20) }}>
-        <TitleAndText
-          title="Description"
-          text="Lorem Ipsum is simply dummy of the text of the printing and
-          typesetting industry"
-          width="100%"
-        />
+        <TitleAndText title="Description" text={description} width="100%" />
       </View>
       <View
         style={{

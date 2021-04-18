@@ -5,15 +5,24 @@ import { rfvalue } from "../../config";
 
 const INFO = [
   {
+    musicTimeLength: 6000,
+    musicName: "Coimbra? Coimbra!",
+    musicStyle: "Indie Rock",
+    bpm: 120,
+    favs: "3",
+    faved: false,
+    shares: 1,
+    description: "Guitarra e Harmonica",
+  },
+  {
     musicTimeLength: 10000,
-    userImg: "ed-sheeran",
-    userTag: "ed_sheeran",
-    musicName: "It Was a Good Day",
+    musicName: "Chill Beat",
     musicStyle: "Indie Rock",
     bpm: 120,
     favs: "1.3M",
     faved: false,
     shares: 5.521,
+    description: "Lorem",
   },
 ];
 
