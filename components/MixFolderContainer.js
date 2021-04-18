@@ -39,12 +39,12 @@ const musicWaveData = [
 
 const mixData = [
   {
-    nSamples: 5,
+    nSamples: 2,
     title: "Cool Beats",
     samplesData: [
       {
-        type: "Vocals",
-        title: "It was a Good Day",
+        type: "Harmonica",
+        title: "Sample Harmonica",
         userImg:
           "https://scontent.fopo2-2.fna.fbcdn.net/v/t1.6435-9/60699165_2268414479861742_5825497553562501120_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=xndwKOK_o_oAX-TIWAH&_nc_ht=scontent.fopo2-2.fna&oh=8621e3dae9aa240674d810717c526ef9&oe=60A1020A",
       },
@@ -61,8 +61,8 @@ const mixData = [
     ],
   },
   {
-    nSamples: 5,
-    title: "Cool Beats",
+    nSamples: 1,
+    title: "LoFi Vibin",
     samplesData: [
       {
         type: "Vocals",

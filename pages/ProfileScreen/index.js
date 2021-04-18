@@ -13,7 +13,7 @@ const ProfileScreen = () => {
     <View style={styles.mainView}>
       <Header />
       <Info
-        userTag="mikeMark"
+        userTag="luis_antonio"
         info={[
           { title: "Sounds", value: 29 },
           { title: "Followers", value: 334 },

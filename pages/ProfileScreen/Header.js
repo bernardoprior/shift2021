@@ -23,11 +23,7 @@ const Header = ({ onPressDraft, onPressOptions }) => {
         <Text style={{ ...styles.text }}>Drafts</Text>
       </Button>
       <Button onPress={onPressOptions}>
-        <IconSimple
-          name="options"
-          size={rfvalue(28)}
-          color={colors.darkPurple}
-        />
+        <IconSimple name="options" size={rfvalue(28)} color={colors.white} />
       </Button>
     </View>
   );
