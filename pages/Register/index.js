@@ -52,7 +52,7 @@ const PhoneNumber = ({ title, placeholder }) => {
                 <Text style={{ color: colors.darkPurple, paddingTop: rfvalue(34) }}>{title}</Text>
                 <View style={{ ...styles.dropdownValue }}>
                     <TouchableOpacity style={{ ...styles.dropdownValueTouchable }}>
-                        <Text style={{ ...styles.text, color: "#9A9A9A" }}>{placeholder}</Text>
+                        <Text style={{ ...styles.text, color: "#9A9A9A", marginBottom: rfvalue(5) }}>{placeholder}</Text>
                         <Icon
                             name="arrow-down"
                             size={rfvalue(16)}
@@ -77,7 +77,7 @@ const InputText = ({ title, placeholder }) => {
                     placeholderTextColor="#9A9A9A"
                     value={text}
                     onChangeText={(text) => setText(text)}
-                    style={{ ...styles.text, marginLeft: rfvalue(10) }}
+                    style={{ ...styles.text, marginLeft: rfvalue(10), marginBottom: rfvalue(5) }}
                 />
             </View>
         </View>
@@ -93,7 +93,7 @@ const Dropdown = ({ title, options }) => {
                 <Text style={{ ...styles.text, ...styles.title, paddingBottom: rfvalue(12) }}>{title}</Text>
                 <View style={{ ...styles.dropdownValue }}>
                     <TouchableOpacity style={{ ...styles.dropdownValueTouchable }}>
-                        <Text style={{ ...styles.text }}>{option}</Text>
+                        <Text style={{ ...styles.text, marginBottom: rfvalue(5) }}>{option}</Text>
                         <Icon
                             name="arrow-down"
                             size={rfvalue(16)}

@@ -12,6 +12,10 @@ const OnboardingScreen = (props) => {
     props.navigation.navigate("Register")
   }
 
+  const onPressLogin = () => {
+    props.navigation.navigate("Login")
+  }
+
   return (
     <View style={styles.mainView}>
       <View style={styles.icon}>
@@ -24,7 +28,7 @@ const OnboardingScreen = (props) => {
       </Text>
       <View style={styles.buttonsCol}>
         <SimpleButton onPress={onPressRegister} text="Register" />
-        <SimpleButton style={{ marginTop: rfvalue(25), backgroundColor: colors.darkPurple }} text="Login" />
+        <SimpleButton onPress={onPressLogin} style={{ marginTop: rfvalue(25), backgroundColor: colors.darkPurple }} text="Login" />
       </View>
     </View>
   );
