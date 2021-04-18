@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useReducer } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import config from "../config";
@@ -36,6 +37,18 @@ const DEFAULT = [
   29,
 ];
 
+const initial_state = {
+  flow: false,
+  add: 0,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "set":
+      return { ...state, flow: action.flow, add: action.add };
+  }
+};
+
 const MusicProgression = ({
   percentageColored,
   frequencySequence = null,
@@ -46,6 +59,13 @@ const MusicProgression = ({
   uncoloredColor = colors.white,
   disabled = false,
 }) => {
+  const [h, setH] = useState(0);
+
+  useEffect(() => {
+    if (h <= -10) setH(10);
+    else setH((prev) => prev - 1);
+  }, [percentageColored]);
+
   const renderBars = () => {
     const seq = frequencySequence || DEFAULT;
 
@@ -53,6 +73,7 @@ const MusicProgression = ({
       <Bar
         key={i}
         height={s}
+        h={h}
         colored={i / seq.length < percentageColored}
         width={width}
         uncoloredColor={uncoloredColor}
@@ -77,11 +98,13 @@ const MusicProgression = ({
   );
 };
 
-const Bar = ({ height, colored, width, uncoloredColor }) => {
+const Bar = ({ height, colored, width, uncoloredColor, h }) => {
+  const val = height + h;
+
   return (
     <Text
       style={{
-        height: `${height % 101}%`,
+        height: `${(val < 0 ? 0 : val > 100 ? 100 : val) % 101}%`,
         borderRadius: 10,
         borderColor: colored ? colors.pink : uncoloredColor,
         opacity: colored ? 1 : 0.5,

@@ -59,7 +59,11 @@ const InputText = ({ title, placeholder }) => {
           placeholderTextColor="#DDE1F0"
           value={text}
           onChangeText={(text) => setText(text)}
-          style={{ ...styles.text, marginLeft: rfvalue(10) }}
+          style={{
+            ...styles.text,
+            marginLeft: rfvalue(10),
+            marginBottom: rfvalue(10),
+          }}
         />
       </View>
     </View>
@@ -74,7 +78,12 @@ const Dropdown = ({ title, options }) => {
       <View style={{ width: "70%" }}>
         <Text style={{ ...styles.text, ...styles.title }}>{title}</Text>
         <View style={{ ...styles.dropdownValue }}>
-          <TouchableOpacity style={{ ...styles.dropdownValueTouchable }}>
+          <TouchableOpacity
+            style={{
+              marginBottom: rfvalue(10),
+              ...styles.dropdownValueTouchable,
+            }}
+          >
             <Text style={{ ...styles.text }}>{option}</Text>
             <Icon
               name="arrow-down"

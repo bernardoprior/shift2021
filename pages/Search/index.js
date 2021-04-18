@@ -37,7 +37,7 @@ const Search = () => {
   };
 
   return (
-    <View style={{ ...styles.mainView, filter: "blur(100px)" }}>
+    <View style={{ ...styles.mainView }}>
       <Filter visible={showFilter} hide={closeFilter} />
       <View style={styles.searchbar}>
         <SearchBar width="70%" onPress={onPressSearch} />
@@ -45,7 +45,21 @@ const Search = () => {
           <IconIonic name="filter" size={rfvalue(32)} color={colors.pink} />
         </TouchableOpacity>
       </View>
-      {!show && <Scrollable />}
+      {!show ? (
+        <Scrollable />
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: colors.pink, fontSize: rfvalue(20) }}>
+            No results
+          </Text>
+        </View>
+      )}
     </View>
   );
 };

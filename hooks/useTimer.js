@@ -25,7 +25,7 @@ const reducer = (state, action) => {
   }
 };
 
-const INC = 1;
+const INC = 0.5;
 
 const useTimer = (init, max) => {
   const [state, dispatch] = useReducer(reducer, initial_state);
@@ -46,7 +46,7 @@ const useTimer = (init, max) => {
 
         time += INC;
         setElapsedTime(time);
-      }, 100);
+      }, 50);
     }
     return () => clearInterval(interval);
   }, [isRunning]);
