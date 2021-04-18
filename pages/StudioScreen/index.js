@@ -18,6 +18,7 @@ import ScrollerSamples from "../../components/ScrollerSamples";
 import StudioBoard from "../../components/StudioBoard";
 
 import config from "../../config";
+import SaveModal from "../Rec/SaveModal";
 const colors = config.colors;
 
 const StudioHeader = (props) => {
@@ -49,6 +50,15 @@ const StudioHeader = (props) => {
 };
 
 const StudioScreen = (props) => {
+  const [saveModal, setSaveModal] = useState(false);
+
+  const openModal = () => {
+    setSaveModal(true);
+  };
+  const closeModal = () => {
+    setSaveModal(false);
+  };
+
   const onPressUndo = () => {};
 
   const onPlay = () => {};
@@ -58,6 +68,8 @@ const StudioScreen = (props) => {
   const { samples } = props.route.params;
   return (
     <View style={styles.mainView}>
+      <SaveModal visible={saveModal} hide={closeModal} />
+
       <StudioHeader navigation={props.navigation} />
       <ScrollView style={{ width: "100%", flex: 1 }}>
         <ScrollerSamples samples={samples} />
@@ -81,7 +93,7 @@ const StudioScreen = (props) => {
             <Icon name="redo" size={RFValue(44, 812)} color={colors.white} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.publishButtonView}>
+        <TouchableOpacity style={styles.publishButtonView} onPress={openModal}>
           <Text style={styles.publishButtonText}>Publish</Text>
         </TouchableOpacity>
       </View>
