@@ -21,24 +21,7 @@ import MessageContainer from "./MessageContainer.js";
 import config from "../../config";
 const colors = config.colors;
 
-const conversationsData = [
-  {
-    from: "luis_antonio",
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    content: "Wanna Collab? Got a sound that is perf...",
-    nNewMessages: 5,
-    hour: "18.31",
-  },
-  {
-    from: "luis_antonio",
-    userImg:
-      "https://i.pinimg.com/474x/ac/99/67/ac9967dc9aa51d9e12da0e756300baf0.jpg",
-    content: "Wanna Collab? Got a sound that is perf...",
-    nNewMessages: 5,
-    hour: "18.31",
-  },
-];
+import conversationsData from "./ChatData.js";
 
 const ChatScreenHeader = () => {
   const onPress = () => {};
