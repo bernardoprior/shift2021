@@ -13,12 +13,17 @@ import config, { rfvalue } from "../config";
 
 const { colors } = config;
 
-const SearchBar = ({ marginTop, width, marginRight, onPress }) => {
+const SearchBar = ({ marginTop, width, marginRight, onPress, marginLeft }) => {
   const [text, setText] = useState("");
 
   return (
     <View
-      style={{ ...styles.mainView, /* marginTop, */ /* marginRight */ width }}
+      style={{
+        ...styles.mainView,
+        /* marginTop, */ /* marginRight */ width,
+        marginRight: marginRight != null ? marginRight : rfvalue(30),
+        marginLeft: marginLeft != null ? marginLeft : rfvalue(30),
+      }}
     >
       <TouchableOpacity onPress={onPress}>
         <Image style={styles.img} source={require("../assets/search.png")} />
