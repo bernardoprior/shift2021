@@ -7,7 +7,11 @@ import config, { rfvalue } from "../../config";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 const colors = config.colors;
 
-const OnboardingScreen = () => {
+const OnboardingScreen = (props) => {
+  const onPressRegister = () => {
+    props.navigation.navigate("Register")
+  }
+
   return (
     <View style={styles.mainView}>
       <View style={styles.icon}>
@@ -19,7 +23,7 @@ const OnboardingScreen = () => {
         To aid all your {'\n'} music needs
       </Text>
       <View style={styles.buttonsCol}>
-        <SimpleButton text="Register" />
+        <SimpleButton onPress={onPressRegister} text="Register" />
         <SimpleButton style={{ marginTop: rfvalue(25), backgroundColor: colors.darkPurple }} text="Login" />
       </View>
     </View>

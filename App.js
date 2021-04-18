@@ -11,6 +11,7 @@ import ProfileScreen from "./pages/ProfileScreen";
 import Search from "./pages/Search";
 import RecPage from "./pages/Rec";
 import StudioScreen from "./pages/StudioScreen";
+import Register from "./pages/Register";
 
 import BottomBar from "./components/BottomBar.js";
 
@@ -77,6 +78,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="Studio" component={StudioScreen} />
 
