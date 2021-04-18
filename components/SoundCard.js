@@ -11,6 +11,7 @@ import {
 import config, { rfvalue } from "../config";
 import usePlay from "../hooks/usePlay";
 import useTimer from "../hooks/useTimer";
+import ShareButton from "./Buttons/ShareButton";
 import IconWithLable from "./IconWithLabel";
 import MusicProgression from "./MusicProgression";
 
@@ -115,11 +116,13 @@ const SecondaryInfo = ({ faved }) => {
       />
       <IconWithLable
         styles={{ marginTop: rfvalue(20) }}
-        icon={require("../assets/shareBlack.png")}
+        // icon={require("../assets/shareBlack.png")}
         flexDirection="row"
         text="1M"
         textStyles={styles.secondaryInfoText}
-      />
+      >
+        <ShareButton color={colors.darkPurple} size={rfvalue(30)} />
+      </IconWithLable>
       <View style={{ marginTop: rfvalue(20) }}>
         <TitleAndText
           title="Description"
