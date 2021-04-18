@@ -104,7 +104,7 @@ export default {
     {
       musicTimeLength: 1000,
       userImg:
-        "http://s2.glbimg.com/R_efvGYA3SxE_qC5UE0ME2vEabs=/e.glbimg.com/og/ed/f/original/2014/09/04/hooting-chimp.jpg",
+        "https://scontent.fopo2-1.fna.fbcdn.net/v/t1.15752-9/175638936_168441231807127_3543916414401132577_n.png?_nc_cat=111&ccb=1-3&_nc_sid=ae9488&_nc_ohc=jpHxDrhTJR0AX8F0y6h&_nc_ht=scontent.fopo2-1.fna&oh=f93e1b3862a549442ee4cb997a34fc3a&oe=60A161DF",
       userTag: "JoaoCardoso",
       musicName: "Sample de Tachos e Panela",
       musicStyle: "Trash",
