@@ -13,6 +13,7 @@ import RecPage from "./pages/Rec";
 import StudioScreen from "./pages/StudioScreen";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ChatScreen from "./pages/ChatScreen";
 
 import BottomBar from "./components/BottomBar.js";
 
@@ -36,7 +37,7 @@ const MainScreen = () => {
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
       <Tab.Screen name="SearchScreen" component={Search} />
       <Tab.Screen name="AddScreen" component={RecPage} />
-      <Tab.Screen name="MessageScreen" component={OnboardingScreen} />
+      <Tab.Screen name="MessageScreen" component={ChatScreen} />
       <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
     </Tab.Navigator>
   );

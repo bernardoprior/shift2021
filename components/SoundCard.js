@@ -11,6 +11,9 @@ import {
 import config, { rfvalue } from "../config";
 import usePlay from "../hooks/usePlay";
 import useTimer from "../hooks/useTimer";
+import ShareButton from "./Buttons/ShareButton";
+import FavButton from "./Buttons/FavButton";
+import SaveButton from "./Buttons/SaveButton";
 import IconWithLable from "./IconWithLabel";
 import MusicProgression from "./MusicProgression";
 
@@ -102,24 +105,40 @@ const SecondaryInfo = ({ faved }) => {
 
   return (
     <View style={styles.secondaryInfo}>
-      <IconWithLable
-        onPress={onPressFav}
-        icon={
-          favorite
-            ? require("../assets/favFilledSmall.png")
-            : require("../assets/fav_black.png")
-        }
-        flexDirection="row"
-        text="1M"
-        textStyles={styles.secondaryInfoText}
-      />
-      <IconWithLable
-        styles={{ marginTop: rfvalue(20) }}
-        icon={require("../assets/shareBlack.png")}
-        flexDirection="row"
-        text="1M"
-        textStyles={styles.secondaryInfoText}
-      />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          width: "100%",
+          justifyContent: "space-between",
+          paddingTop: rfvalue(8),
+          paddingHorizontal: rfvalue(24),
+        }}
+      >
+        <IconWithLable
+          onPress={onPressFav}
+          flexDirection="column"
+          textStyles={styles.secondaryInfoText}
+          text="1.3 M"
+        >
+          <FavButton color={colors.darkPurple} size={rfvalue(30)} />
+        </IconWithLable>
+        <IconWithLable
+          // icon={require("../assets/shareBlack.png")}
+          flexDirection="column"
+          textStyles={styles.secondaryInfoText}
+          text="233 K"
+        >
+          <ShareButton color={colors.darkPurple} size={rfvalue(30)} />
+        </IconWithLable>
+        <IconWithLable
+          // icon={require("../assets/shareBlack.png")}
+          flexDirection="column"
+          textStyles={styles.secondaryInfoText}
+        >
+          <SaveButton color={colors.darkPurple} size={rfvalue(30)} />
+        </IconWithLable>
+      </View>
       <View style={{ marginTop: rfvalue(20) }}>
         <TitleAndText
           title="Description"
@@ -185,9 +204,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
   },
 
-  secondaryInfoText: {
-    marginLeft: rfvalue(15),
-  },
+  secondaryInfoText: {},
 
   text: {
     //fontFamily: "PoppinsRegular",
