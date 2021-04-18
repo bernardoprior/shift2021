@@ -6,7 +6,7 @@ const [useFolder, CtxProvider] = createCtx();
 
 const initialState = [
   {
-    nSamples: 1,
+    nSamples: 3,
     title: "Cool Beats",
     samplesData: [
       {
@@ -28,7 +28,7 @@ const initialState = [
     ],
   },
   {
-    nSamples: 1,
+    nSamples: 2,
     title: "LoFi Vibin",
     samplesData: [
       {
