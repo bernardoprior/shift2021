@@ -20,7 +20,7 @@ const Header = ({ onPressDraft, onPressOptions }) => {
       }}
     >
       <Button onPress={onPressDraft}>
-        <Text style={{ ...styles.text }}>Draft</Text>
+        <Text style={{ ...styles.text }}>Drafts</Text>
       </Button>
       <Button onPress={onPressOptions}>
         <IconSimple
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "PoppinsBold",
     fontSize: rfvalue(15),
-    color: colors.darkPurple,
+    color: colors.white,
   },
 });
 
